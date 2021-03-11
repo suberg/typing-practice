@@ -1,6 +1,6 @@
 import useOperations from "../../hooks/use-operations";
 import { Operation } from "../../entities/operation";
-import { Dropdown, Menu } from "antd";
+import { Dropdown, Menu, Button } from "antd";
 import { UserOutlined, DownOutlined } from "@ant-design/icons";
 import type { User } from "../../entities/user";
 
@@ -14,7 +14,7 @@ export default function Actions({ user, currentUser, onAction }: ActionsProps) {
   const operations = useOperations(user, currentUser);
   const menu = (
     <Menu>
-      {operations.map((operation, key) => (
+      {operations.map((operation: Operation, key: number) => (
         <Menu.Item
           key={key}
           icon={<UserOutlined />}
@@ -27,9 +27,9 @@ export default function Actions({ user, currentUser, onAction }: ActionsProps) {
   );
   return (
     <Dropdown overlay={menu} trigger={["click"]}>
-      <a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
+      <Button className="ant-dropdown-link" onClick={(e) => e.preventDefault()} size="small">
         Action <DownOutlined />
-      </a>
+      </Button>
     </Dropdown>
   );
 }

@@ -22,6 +22,10 @@ export class Admin extends AccountInfo {
     throw new TypeError("Object is not Admin");
   }
 
+  static is(user: User): user is Admin {
+    return user instanceof Admin;
+  }
+
   private readonly _type = Symbol("Admin");
   public readonly role = Role.ADMIN;
 

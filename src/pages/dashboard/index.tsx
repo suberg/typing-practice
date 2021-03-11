@@ -7,6 +7,8 @@ import useUsers from "../../hooks/use-users";
 import useCurrentUser from "../../hooks/use-current-user";
 import { Table, Breadcrumb } from "antd";
 import type { User } from "../../entities/user";
+import NotFound from "../../pages/not-found";
+import hasUserPrivilegeRights from '../../utils/hasPrivilegeRights';
 import type { RouteComponentProps } from "@reach/router";
 
 export default function Dashboard(_: RouteComponentProps) {
@@ -38,6 +40,8 @@ export default function Dashboard(_: RouteComponentProps) {
       ),
     },
   ];
+
+  if (!hasUserPrivilegeRights(currentUser)) return <NotFound />
 
   return (
     <Page>
