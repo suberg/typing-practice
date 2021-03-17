@@ -1,11 +1,7 @@
 import { Role } from "../entities/role";
-import { Admin } from "../entities/admin";
 import { castTo } from "../entities/role-to-user";
-import { Client } from "../entities/client";
-import { Moderator } from "../entities/moderator";
-import type { User } from "../entities/user";
+import { User } from "../entities/user";
 import { AvailableOperations, AvailableOperationsType } from "../entities/available-operations";
-import { Operation } from "../entities/operation";
 import type { RoleToUser } from "../entities/role-to-user";
 import type { Credentials } from "../hooks/use-login";
 export default class UserService {
